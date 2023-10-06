@@ -1,0 +1,168 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Flask Form with Dynamic Options</title>-->
+<!--    <script>-->
+<!--        function updateOptions() {-->
+<!--            var selectedPractice = document.getElementById("selected_practice").value;-->
+
+<!--            // Use fetch for the AJAX request to the Flask route that returns patient IDs based on practice-->
+<!--            fetch("/get_patient_options", {-->
+<!--                method: "POST",-->
+<!--                headers: {-->
+<!--                    'Content-Type': 'application/x-www-form-urlencoded',-->
+<!--                },-->
+<!--                body: 'selected_practice=' + encodeURIComponent(selectedPractice),-->
+<!--            })-->
+<!--            .then(response => response.json())-->
+<!--            .then(data => {-->
+<!--                // Update the 'Patient ID' dropdown options-->
+<!--                var patientDropdown = document.getElementById("selected_patient_id");-->
+<!--                patientDropdown.innerHTML = '';  // Clear existing options-->
+<!--                data.forEach(function(value) {-->
+<!--                    var option = document.createElement("option");-->
+<!--                    option.value = value;-->
+<!--                    option.text = value;-->
+<!--                    patientDropdown.add(option);-->
+<!--                });-->
+<!--            });-->
+<!--        }-->
+
+<!--        // Function to update the div with the selected options-->
+<!--        function updateSelectedOptions() {-->
+<!--            updateOptions();  // Update 'Patient ID' dropdown options-->
+<!--        }-->
+
+<!--function updateSelectedOptions() {-->
+<!--        updateOptions();  // Update 'Patient ID' dropdown options-->
+<!--        updateSelectedPractice();  // Update the div with the selected practice-->
+<!--    }-->
+
+<!--    function displaySelectedOptions() {-->
+<!--        var selectedPatientID = document.getElementById("selected_patient_id").value;-->
+<!--        var selectedPractice = document.getElementById("selected_practice").value;-->
+
+<!--        document.getElementById("selected_options_display").innerText = "Selected Patient ID: " + selectedPatientID +-->
+<!--            ", Selected Practice: " + selectedPractice;-->
+<!--    }-->
+<!--</script>-->
+
+<!--<body>-->
+<!--    <h1>Flask Form with Dynamic Options</h1>-->
+<!--    <form method="post" action="/" onsubmit="displaySelectedOptions()">-->
+<!--        <label for="selected_patient_id">Select Patient ID:</label>-->
+<!--        <select name="selected_patient_id" id="selected_patient_id">-->
+<!--            {% for patient_id in patient_ids %}-->
+<!--                <option value="{{ patient_id }}" {% if patient_id == selected_patient_id %}selected{% endif %}>{{ patient_id }}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+<!--        <br>-->
+<!--        <label for="selected_practice">Select Practice:</label>-->
+<!--        <select name="selected_practice" id="selected_practice" onchange="updateSelectedOptions()">-->
+<!--            {% for practice in practices %}-->
+<!--                <option value="{{ practice }}" {% if practice == selected_practice %}selected{% endif %}>{{ practice }}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+<!--        <br>-->
+<!--        <button type="submit">Submit</button>-->
+<!--        <div id="selected_practice_display"></div>-->
+<!--        <div id="selected_options_display"></div>-->
+<!--    </form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Form with Dynamic Options</title>
+    <script>
+        function updateOptions() {
+            var selectedPractice = document.getElementById("selected_practice").value;
+
+            // Use fetch for the AJAX request to the Flask route that returns patient IDs based on practice
+            fetch("/get_patient_options", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'selected_practice=' + encodeURIComponent(selectedPractice),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Update the 'Patient ID' dropdown options
+                var patientDropdown = document.getElementById("selected_patient_id");
+                patientDropdown.innerHTML = '';  // Clear existing options
+                data.forEach(function(value) {
+                    var option = document.createElement("option");
+                    option.value = value;
+                    option.text = value;
+                    patientDropdown.add(option);
+                });
+            });
+        }
+
+        // Function to update the div with the selected options
+        function updateSelectedOptions() {
+            updateOptions();  // Update 'Patient ID' dropdown options
+        }
+
+        function displaySelectedOptions() {
+            var selectedPatientID = document.getElementById("selected_patient_id").value;
+            var selectedPractice = document.getElementById("selected_practice").value;
+
+            document.getElementById("selected_practice_display").innerText = "Selected Patient ID: " + selectedPatientID +
+                ", Selected Practice: " + selectedPractice;
+
+            // Assuming these values are provided by Flask server
+            var prediction = "Some Prediction";
+            var leapPrediction = "Some Leap Prediction";
+            var remedy = "Some Remedy";
+
+            // Display the parameters in text boxes
+            document.getElementById("prediction").value = prediction;
+            document.getElementById("leap_prediction").value = leapPrediction;
+            document.getElementById("remedy").value = remedy;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Flask Form with Dynamic Options</h1>
+    <form method="post" action="/" onsubmit="displaySelectedOptions()">
+        <label for="selected_patient_id">Select Patient ID:</label>
+        <select name="selected_patient_id" id="selected_patient_id">
+            {% for patient_id in patient_ids %}
+                <option value="{{ patient_id }}" {% if patient_id == selected_patient_id %}selected{% endif %}>{{ patient_id }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="selected_practice">Select Practice:</label>
+        <select name="selected_practice" id="selected_practice" onchange="updateSelectedOptions()">
+            {% for practice in practices %}
+                <option value="{{ practice }}" {% if practice == selected_practice %}selected{% endif %}>{{ practice }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <button type="submit">Submit</button>
+
+        <!-- Text boxes for displaying parameters -->
+        <label for="prediction">Prediction:</label>
+        <input type="text" id="prediction" name="prediction" readonly>
+        <br>
+        <label for="leap_prediction">Leap Prediction:</label>
+        <input type="text" id="leap_prediction" name="leap_prediction" readonly>
+        <br>
+        <label for="remedy">Remedy:</label>
+        <input type="text" id="remedy" name="remedy" readonly>
+    </form>
+</body>
+</html>
