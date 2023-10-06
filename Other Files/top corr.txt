@@ -1,0 +1,40 @@
+'AgeGroup',
+ 'BMI',
+ 'BSA',
+ 'CHRNLUNG',
+ 'Diabetes history of Family',
+ 'Diastolic',
+ 'E78',
+ 'Elevated BP',
+ 'Gender',
+ 'HTN',
+ 'I10',
+ 'I25',
+ 'J44',
+ 'M15',
+ 'Mean Arterial Pressure',
+ 'N76',
+ 'OBESE',
+ 'PresentAge',
+ 'Systolic',
+ 'Weight',
+ 'WeightGroup',
+ 'Z01',
+ 'Z11',
+ 'Z30',
+ 'Z32',
+ 'Z39'
+
+
+
+
+
+
+
+
+
+
+0.7766990291262135
+
+
+

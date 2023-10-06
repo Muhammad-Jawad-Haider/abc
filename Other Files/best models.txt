@@ -1,0 +1,17 @@
+depth,n_base,n	learning_rate	features
+
+8,8,6    0.0001		20
+
+10,6,9, 0.00005		20
+
+10,10/11,5,0.00005		15
+
+
+Best Parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 4, 'n_estimators': 75, 'subsample': 0.95}
+Accuracy: 0.79
+F1: 0.80
+
+
+Best Parameters: {'colsample_bytree': 0.75, 'learning_rate': 0.05, 'max_depth': 7, 'n_estimators': 70, 'subsample': 0.65}
+Accuracy: 0.807
+F1: 0.816

@@ -1,0 +1,29 @@
+HDL lab:
+	+HDL CHOLESTEROL
+	-CHOLESTEROL, TOTAL
+	-Cholesterol
+	-Cholesterol, Total
+
+TG lab:
+	-THYROID PEROXIDASE AND THYROGLOBULIN ANTIBODIES
+	-Thyroglobulin Antibody
+	-THYROID PEROX / THYROGLOB Abs
+	+THYROGLOBULIN
+
+HBA1C:
+	-HbAIC %
+	-Hemoglobin A1c
+	-HEMOGLOBIN A1c
+	-Glycohemoglobin A1c %
+	-Hemoglobin A1c with eAG
+	-HEMOGLOBIN A1c WITH eAG
+	-HEMOGLOBIN A1C
+	-HEMOGLOBIN
+	-Hemoglobin
+	-Hemoglobin A1c (Glycohgb)
+	-A1C
+	-Hb A1c
+
+FBS:
+	-GLUCOSE FASTING
+	-

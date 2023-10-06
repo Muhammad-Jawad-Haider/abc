@@ -1,0 +1,15 @@
+'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 3, 'n_estimators': 75, 'subsample': 0.4
+
+feature_minn = ['AgeGroup',
+ 'BMI',
+ 'DiabeteshistoryofFamily',
+ 'E78',
+ 'ElevatedBP',
+ 'Gender',
+ 'I10',
+ 'I25',
+ 'Z01',
+ 'Z11',
+ 'Z30',
+ 'Z32',
+ 'Z39']
